@@ -1,6 +1,6 @@
 
 # UNIFOR
-**Nome**: Nome do estudante <br>
+**Nome**: Cauã de Norões Milfont Queiroz <br>
 **Disciplina**: Raciocínio lógico algorítmico
 
 ## Lista de exercícios 01
@@ -66,7 +66,7 @@ B --> C[\Sal\]
 C --> D{Sal <= 500}
 D --FALSE--> E[novo_sal = Sal * 1.1]
 D --TRUE--> F[novo_sal = Sal * 1.2]
-E --> G{{"Seu novo salário é:", Sal}}
+E --> G{{"Seu novo salário é:", novo_sal}}
 F --> G
 G --> H([FIM])
 ```
@@ -74,16 +74,26 @@ G --> H([FIM])
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+1 Algoritmo Calcular_novo_salário
+2 DECLARE sálario, Novosalário como real
+3 ESCREVA "Digite seu salário: "
+4 LEIA sal
+5 INICIO
+6 SE sal <= 500 ENTÃO                //verificar o aumento baseado no salário atual
+7 novo_sal = Sal * 1.2               //aumento de 20% para salários até R$ 500
+8 SENÃO                              
+9 novo_sal = Sal * 1.1               //aumento de 10% para salários acima de R$ 500
+10 FIM_SE
+11 ESCREVA "Seu novo salário é: ", novo_sal
+12 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (1.0 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| salário      | salário <= 500| aumento em % | novo salário| saída | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| 400       | V     | 20% | 480| "Seu novo salário é 480"   |
+| 550          | F       | 10%     | 605| "Seu novo salário é 605"  |
 
 ## Exercício 03 (3 pontos)
 Represente, em fluxograma e pseudocódigo, um algoritmo para calcular a média aritmética entre duas notas de um aluno e mostrar sua situação, que pode ser aprovado ou reprovado.
@@ -92,23 +102,41 @@ Represente, em fluxograma e pseudocódigo, um algoritmo para calcular a média a
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite as duas notas}}
+B --> C[\N1,N2\]
+C --> D[ média = N1 + N2 /2]
+D --> E{média >= 6}
+E --TRUE--> F{{Aprovado}}
+E --FALSE--> G{{Reprovado}}
+G--> H([FIM])
+F --> H([FIM])
 ```
 
 #### Pseudocódigo (1 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+1 Algoritmo CalcularMédia
+2 DECLARE N1, N2, média como real
+3 ESCREVA "DIgite as duas notas: "
+4 INICIO
+5 LEIA N1, N2
+6 média = (N1 + N2) / 2
+7 SE média >= 6 ENTÃO
+8 ESCREVA "Aprovado"
+9 SENÃO
+10 ESCREVA "Reprovado"
+11 FIM_SE
+12 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (1 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| N1           | N2           |    média    | Média >= 6   | Saída         | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
-
+| 6            |              |     F         |              | "Coloque 2 notas!"   |
+| 7            | 7            | 7            | V            | "Aprovado" |
+|   6          |    4          |  5          |   F           |" Reprovado |
+| 5,5          | 6,5            | 6          | V              | "Aprovado"|
 ## Exercício 04 (3 pontos)
 Represente, em fluxograma e pseudocódigo, um algoritmo que, a partir da idade do candidato(a), determinar se pode ou não tirar a CNH. 
 Caso não atender a restrição de idade, calcular quantos anos faltam para o candidato estar apto.
@@ -117,20 +145,41 @@ Caso não atender a restrição de idade, calcular quantos anos faltam para o ca
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite sua idade}}
+B --> C[\Idade\]
+C--> D{Idade >= 18}
+D --TRUE--> E{{Você pode tirar a CNH}}
+D --FALSE--> F[ida = Idade - 18]
+F --> G{{Falta ida anos para completar 18}}
+G --> H([FIM])
+E --> H([FIM])
+
+
+
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+1 Algoritmo IdadeCNH
+2 DECLARE Ida, res como Inteiro
+3 ESCREVA "Digite sua idade: "          
+4 INICIO
+5 LEIA Idade
+6 SE Idade >= 18 ENTÃO                            // verifica se o inteiro é positivo
+7 ESCREVA  "Você pode tirar a CNH"
+8 SENÃO
+9 ida = Idade - 18
+10 ESCREVA " Você não pode tirar a CNH ainda faltam "ida" anos"
+11 FIM_SE
+12 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (1.0 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| Idade        | Idade >= 18 | Pode tirar CNH |Anos restante| Saída | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
-
+| 17,5         |              |              |              | "O número deve ser inteiro"   |
+| 18  | V      | V        | 0    | "Você pode tirar a CNH!" |
+| 16           | F        |F                | 2             |" Você não pode tirar a CNH ainda faltam 2 anos!"|
+| 20| V | V| 0| "Você pode tirar a CNH!"
