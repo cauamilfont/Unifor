@@ -164,6 +164,8 @@ Algoritmo ContaAprovacoes
   11 FIM_ENQUANTO
   12 ESCREVA "Número de alunos aprovados: ", cont
 13 FIM_ALGORITMO
+```
+
 
 #### Teste de mesa 01
 Teste de mesa referente ao algoritmo usando o loop ENQUANTO.
