@@ -143,22 +143,72 @@ O algoritmo deve retornar o resultado da operação selecionada simulando todas 
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite o primeiro número:}}
+B --> C[\Num1\]
+C --> D{{Digite o segundo número:}}
+D --> E[\Num2\]
+E --> F{{Digite o operador +, -, *, /:}}
+F --> G[\operador\]
+G --> H{operador == '+'}
+H --TRUE--> I[Som = Num1 + Num2]
+I --> J{{"O resultado da soma é: "Som}}
+J --> Z([FIM])
+H --FALSE--> L{operador == '-'}
+L --TRUE--> M[Sub = Num1 - Num2]
+M --> N{{"O resultado da subtração é: "Sub}}
+N--> Z([FIM])
+L --FALSE--> P{operador == '*'}
+P --TRUE--> Q[Multi = Num1 * Num2]
+Q --> R{{"O resultado da multiplicação é: "Multi}}
+R--> Z([FIM])
+P --FALSE--> T{operador == '/'}
+T --TRUE--> U[Divi = Num1 / Num2]
+U --> V{{"O resultado da divisão é: "Divi}}
+V --> Z([FIM])
+T --FALSE--> X{{Operador inválido!}}
+X --> Z([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo Calculadora
-FIM_ALGORITMO
+1 Algoritmo Calculadora
+2 DECLARE Num1, Num2, Som, Sub, Multi, Divi: REAL
+3 operador: CARACTERE
+4 ESCREVA "Digite o primeiro número: "
+5 LEIA Num1
+6 ESCREVA"Digite o segundo número: "
+7 LEIA Num2
+8 ESCREVA "Digite o operador (+, -, *, \): "
+9 LEIA operador
+10 SE operador == '+' ENTÃO
+    11  Som = Num1 + Num2
+     12 ESCREVA "O resultado da soma é: ", Som
+  13 SENÃO SE operador == '-' ENTÃO
+     14 Sub = Num1 - Num2
+     15 ESCREVA "O resultado da subtração é: ", Sub
+ 16  SENÃO SE operador == '*' ENTÃO
+  17    Multi = Num1 * Num2
+     18 ESCREVA "O resultado da multiplicação é: ", Multi
+  19 SENÃO SE operador == '/' ENTÃO
+    20  SE Num2 != 0 ENTAO
+      21   Divi = Num1 / Num2
+       22  ESCREVA "O resultado da divisão é: ", Divi
+ 23  SENÃO
+   24   ESCREVA "Operador inválido!"
+25   FIM_SE
+26 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| Número 1 | Número 2         | Operador     | Resultado    | Saída | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| 15           | 20           | +            |  25          |"Resultado da soma é: 25 "   |
+| 30           | 15           | -           | 15            | "Resultado da subtração é: 15 " |
+|20           | 2             | *          | 40             |"Resultado da multiplicação é: 40"|
+|50    | 5        |  \    |   10      |    "Resultado da divisão é: 10 "|
+| 20    | 4|   √|  F| "Operador inválido"|
 
 ### Exercício 04 (2.5 pontos)
 Elaborar um algoritmo que, dada a idade, classifique nas categorias: infantil A (5 - 7 anos), infantil B (8 -10 anos), juvenil A (11 - 13 anos), juvenil B (14 -17 anos) e adulto (maiores que 18 anos).
