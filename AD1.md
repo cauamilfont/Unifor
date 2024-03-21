@@ -74,11 +74,11 @@ I --> J{{"b =", b}}
 Algoritmo TrocaValores
 1 INICIO
   2 ESCREVA "Digite o valor da a: "                //ESCREVA "Digite o valor da a: 0"
-  3 LEIA a
+  3 LEIA a                                         // 0
   4 ESCREVA "Digite o valor da b: "                //ESCREVA "Digite o valor da b: 01"
-   5 LEIA b
+   5 LEIA b                                        //1
   6 aux <-- a                                      // 0
-  7 a <-- b                                        
+  7 a <-- b                                        //1 <-- 0
   8 b <-- aux                                      //1
   9 ESCREVA "Novo valor de a:", a                  //"Novo valor de a: 1 "
   10 ESCREVA "Novo valor de b:", b                  // "Novo valor de b: 0"
