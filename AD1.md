@@ -225,19 +225,20 @@ K --LOOP--> G
 
 ```
 Algoritmo SomaNumeros
+DECLARE n, soma, num: INTEIRO
 1 INICIO
-  2 ESCREVA "Digite a quantidade de números (n >= 0): "
+ 2 ESCREVA "Digite a quantidade de números (n >= 0): "             
   3 LEIA n
   4 SE n < 0 ENTAO
     5  ESCREVA "O valor deve ser maior ou igual a zero!"
    6 SENÃO
     7 soma ← 0
      8 i ← 1
-     9 ENQUANTO i <= n FAÇA
-        10 ESCREVA "Digite um número: "
-        11 LEIA num
-         12 soma ← soma + num
-         13 i ← i + 1
+     9 ENQUANTO i <= n FAÇA                        //1 <= 3                    //2 <= 3                 3<= 3                   4 <= 3 FALSE
+        10 ESCREVA "Digite um número: "            //10                        //20                      30
+        11 LEIA num                                //num = 10                  //num = 20                num = 30
+         12 soma ← soma + num                      //soma = 0 + 10 = 10        // soma = 10 + 20 = 30     soma= 30 +30 = 60
+         13 i ← i + 1                              //i = 1 + 1 = 2             // i = 2 + 1 = 3            i = 3 + 1 = 4
      14 FIM_ENQUANTO
      15 ESCREVA "A soma dos numeros é ", soma
   16 FIM_SE
