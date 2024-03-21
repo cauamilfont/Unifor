@@ -217,19 +217,55 @@ Elaborar um algoritmo que, dada a idade, classifique nas categorias: infantil A 
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite a idade:}}
+B --> C[\idade\]
+C --> D{idade >= 5 e idade <= 7}
+D --TRUE--> E{{Categoria: Infantil A}}
+E --> M([FIM])
+D --FALSE--> F{idade >= 8 e idade <= 10}
+F --TRUE--> G{{Categoria: Infantil B}}
+G --> M([FIM])
+F --FALSE--> H{idade >= 11 e idade <= 13}
+H --TRUE--> I{{Categoria: Juvenil A}}
+I --> M([FIM])
+H --FALSE--> J{idade >= 14 e idade <= 17}
+J --TRUE--> K{{Categoria: Juvenil B}}
+K --> M([FIM])
+J --FALSE--> L{{Categoria: Adulto}}
+L --> M([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ClassificaCategoria
-FIM_ALGORITMO
+1 DECLARE idade: INTEIRO
+2 INICIO
+  3 ESCREVA "Digite a idade: "
+  4 LEIA idade
+ 5  SE idade >= 5 E idade <= 7 ENTÃO
+     6 ESCREVA "Categoria: Infantil A"
+  7 SENÃO
+8 SE idade >= 8 E idade <= 10 ENTÃO
+    9  ESCREVA "Categoria: Infantil B"
+10 SENÃO
+11 SE idade >= 11 E idade <= 13 ENTÃO
+    12  ESCREVA "Categoria: Juvenil A"
+ 13  SENÃO
+14 SE idade >= 14 E idade <= 17 ENTÃO
+     15 ESCREVA "Categoria: Juvenil B"
+  16 SENÃO
+     17 ESCREVA "Categoria: Adulto"
+  18 FIM_SE
+ 19 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| Idade | Infantil | Juvenil | Adulto| Saída | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| 9   | V     | F    |  F     | "Categoria: Infantil B"   |
+| 5   | V          | F        | F |"Categoria: Infantil A"  |
+| 15  |F          | V        | F | "Categoria: Juvenil B"  |
+| 19 | F         | F        | V | "Categoria: Adulto"  |
+| 12| F         | V       | F | "Categoria: Juvenil B"  |
