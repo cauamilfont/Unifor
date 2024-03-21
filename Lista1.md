@@ -15,34 +15,34 @@ flowchart TD
 A([INICIO]) --> B{{Digite um número:}}
 B --> C[\numero\]
 C --> D{numero >= 0}
-D --FALSE--> E[O número não é positivo!]
+D --FALSE--> E{{O número não é positivo!}}
 D --TRUE--> F[resto = numero % 2]
-E --> Z([FIM])
+E --> J([FIM])
 F --> G{resto == 0}
 G --FALSE--> H{{O número é impar!}}
 G --TRUE--> I{{O número é par!}}
-H --> Z
-I --> Z
+H --> J
+I --> J
 ```
 
 #### Pseudocódigo (0,5 ponto)
 ```
 1  ALGORTIMO verifica_par_impar
 2  DECLARE numero, resto: INTEIRO
-3  ESCREVA "Digite um número: "
-4  INICIO
-4  LEIA numero
-5  SE numero >= 0 ENTAO                  // verifica se o inteiro é positivo
-6    resto = numero % 2                 // calcula o resto da divisão por 2
-7    SE resto == 0 ENTAO                // verifica se o resto é igual a zero
-8      ESCREVA "O número é par!"
-9    SENAO
-10     ESCREVA "O número é impar!"
-11   FIM_SE
-11  SENAO                                // caso inteiro for negativo (condição linha 5)
-12    ESCREVA "O número deve ser postivo!"
-13  FIM_SE
-13 FIM
+3 INICIO
+4   ESCREVA "Digite um número: "
+5  LEIA numero
+6  SE numero >= 0 ENTAO                  // verifica se o inteiro é positivo
+7    resto = numero % 2                 // calcula o resto da divisão por 2
+8    SE resto == 0 ENTAO                // verifica se o resto é igual a zero
+9     ESCREVA "O número é par!"
+10    SENAO
+11     ESCREVA "O número é impar!"
+12   FIM_SE
+13  SENAO                                // caso inteiro for negativo (condição linha 5)
+14    ESCREVA "O número deve ser postivo!"
+15  FIM_SE
+16 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0,25 ponto)
@@ -76,9 +76,9 @@ G --> H([FIM])
 ```
 1 Algoritmo Calcular_novo_salário
 2 DECLARE sálario, Novosalário como real
-3 ESCREVA "Digite seu salário: "
-4 LEIA sal
-5 INICIO
+3 INICIO
+4 ESCREVA "Digite seu salário: "
+5 LEIA sal
 6 SE sal <= 500 ENTÃO                //verificar o aumento baseado no salário atual
 7 novo_sal = Sal * 1.2               //aumento de 20% para salários até R$ 500
 8 SENÃO                              
@@ -117,8 +117,8 @@ F --> H([FIM])
 ```
 1 Algoritmo CalcularMédia
 2 DECLARE N1, N2, média como real
-3 ESCREVA "DIgite as duas notas: "
-4 INICIO
+3 INICIO
+4 ESCREVA "Digite as duas notas: "
 5 LEIA N1, N2
 6 média = (N1 + N2) / 2
 7 SE média >= 6 ENTÃO
@@ -163,8 +163,8 @@ E --> H([FIM])
 ```
 1 Algoritmo IdadeCNH
 2 DECLARE Ida, res como Inteiro
-3 ESCREVA "Digite sua idade: "          
-4 INICIO
+3 INICIO        
+4 ESCREVA "Digite sua idade: "
 5 LEIA Idade
 6 SE Idade >= 18 ENTÃO                            // verifica se o inteiro é positivo
 7 ESCREVA  "Você pode tirar a CNH"
