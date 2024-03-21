@@ -87,10 +87,10 @@ G --> H
 #### Teste de mesa (0.5 ponto)
 
 | N1           | N2           | N3           | N4           | >= 0         | Saída    |
-|      --      |      --      |      --      |      --      |      --      | 
-| 20           | 34           | -2           |  7           | F            |"Escreva um número positivo"
-| 30           | 12           | 06           | 30           | V            |"Sua média é: " media
-| 45           | 25           |45            |              | F            |"Digite 4 números 
+|      --      |      --      |      --      |      --      |      --      | |
+| 20           | 34           | -2           |  7           | F            |"Escreva um número positivo"|
+| 30           | 12           | 06           | 30           | V            |"Sua média é: " media|
+| 45           | 25           |45            |              | F            |"Digite 4 números |
 
 ### Exercício 02 (2.5 pontos)
 Leia uma temperatura dada em Celsius (C) e imprima o equivalente em Fahrenheit (F). (Fórmula de conversão: F = (9/5) * C + 32)
@@ -99,22 +99,41 @@ Leia uma temperatura dada em Celsius (C) e imprima o equivalente em Fahrenheit (
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{"Digite a temperatura em Celsius"}}
+B --> C[\TempCel\]
+C -->D{TempCel <= -273.15}
+D --FALSE--> E{{Temperatura abaixo de zero absoluto!}}
+D --TRUE--> F[TempFah = 9\5 * TempCel + 32]
+F --> G{{"A temperatura em Fahrenheit é: " TempFah}}
+G --> H([FIM])
+E --> H
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ConverteCelsiusFarenheit
-FIM_ALGORITMO
+1 DECLARE TempCel, TempFah, como REAL
+2 INICIO
+3 ESCREVA "Digite a temperatura em Celsius"
+4 LEIA TempCel
+5 SE TempCel <= -273.15 ENTÃO
+6 TempFah = 9\5 * TempCel + 32
+7 ESCREVA "A temperatura em Fahrenheit é: " TempFah
+8 SENÃO
+9 ESCREVA "Temperatura abaixo de zero absoluto!"
+10 FIM_SE
+11 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| C° | C° <= -273.15 | F° | >= 0 | Saída | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| 13    | V      | 55.4    | V   | "A temperatura é 55.4F°"    |
+| -100  | V         | -148        | F|  "A temperatura é -148F°" |
+|33     | V      | 91.4 | V| "A Temperatura é 91.4F°"|
+|-273.15| F     ||F|"Temperatura abaixo de zero absoluto!"|
 
 ### Exercício 03 (2.5 pontos)
 Receba dois números reais e um operador e efetue a operação correspondente com os valores recebidos (operandos). 
