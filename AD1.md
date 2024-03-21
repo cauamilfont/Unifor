@@ -1,15 +1,15 @@
 <img src="https://drive.google.com/uc?id=1SOzRTjUt7cuBJpSqoK90fcAiKBrnpUJo" width="400">
 
-**Curso:** preencha com seus dados <br>
-**Disciplina:** preencha com seus dados <br>
-**Código/Turma:** preencha com seus dados <br>
+**Curso:** Análise e Desenvolvimento de Sistemas
+**Disciplina:** Raciocinio Lógico Algoritmico
+**Código/Turma:** T160 - 80 / T160 - 81
 **Professor:** Ricardo Carubbi <br>
-**Data:** preencha com a data de envio <br>
-**Aluno(a):** preencha com seus dados <br>
-**Matrícula:** preencha com seus dados <br>
+**Data:** 21/03/2024
+**Aluno(a):** Cauã de Norões Milfont Queiroz
+**Matrícula:** 2412881
 
-**1a chamada (Sim/Não):** preencha com a opção correta <br>
-**2a chamada (Sim/Não):** preencha com a opção correta
+**1a chamada (Sim/Não):** Sim
+**2a chamada (Sim/Não):** Não
 
 # Avaliação Diagnóstica 1
 
@@ -72,9 +72,17 @@ I --> J{{"b =", b}}
 
 ```
 Algoritmo TrocaValores
-INICIO
-...
-FIM
+1 INICIO
+  2 ESCREVA "Digite o valor da a: "                //ESCREVA "Digite o valor da a: 0"
+  3 LEIA a
+  4 ESCREVA "Digite o valor da b: "                //ESCREVA "Digite o valor da b: 01"
+   5 LEIA b
+  6 aux <-- a                                      // 0
+  7 a <-- b                                        
+  8 b <-- aux                                      //1
+  9 ESCREVA "Novo valor de a:", a                  //"Novo valor de a: 1 "
+  10 ESCREVA "Novo valor de b:", b                  // "Novo valor de b: 0"
+11 FIM_ALGORITMO
 ```
 
 #### Teste de mesa
@@ -141,10 +149,21 @@ J --LOOP--> E
 
 ```
 Algoritmo ContaAprovacoes
-INICIO
-...
-FIM
-```
+1 INICIO
+  2 ESCREVA "Digite o número de alunos: "
+   3 LEIA n
+   4 LEIA cont ← 0
+  5 LEIA i ← 1
+  6 ENQUANTO i <= n FAÇA
+      7 ESCREVA "Digite a nota do aluno ", i, ": "
+     8 LEIA nota
+     9 SE nota >= 50 E nota <= 100 ENTAO
+         cont ← cont + 1
+    10  FIM_SE
+      i ← i + 1
+  11 FIM_ENQUANTO
+  12 ESCREVA "Número de alunos aprovados: ", cont
+13 FIM_ALGORITMO
 
 #### Teste de mesa 01
 Teste de mesa referente ao algoritmo usando o loop ENQUANTO.
@@ -178,7 +197,7 @@ Aceite apenas $n$ maior ou igual a zero.
     - obter o próximo número $i$;
     - calcular a soma atual, adicionando o número $i$ obtido à soma mais recente;
 4. Exibir a soma dos $n$ números
-
+```
 #### Fluxograma
 
 ```mermaid
@@ -204,11 +223,24 @@ K --LOOP--> G
 
 ```
 Algoritmo SomaNumeros
-INICIO
-...
-FIM
+1 INICIO
+  2 ESCREVA "Digite a quantidade de números (n >= 0): "
+  3 LEIA n
+  4 SE n < 0 ENTAO
+    5  ESCREVA "O valor deve ser maior ou igual a zero!"
+   6 SENÃO
+    7 soma ← 0
+     8 i ← 1
+     9 ENQUANTO i <= n FAÇA
+        10 ESCREVA "Digite um número: "
+        11 LEIA num
+         12 soma ← soma + num
+         13 i ← i + 1
+     14 FIM_ENQUANTO
+     15 ESCREVA "A soma dos numeros é ", soma
+  16 FIM_SE
+17 FIM_ALGORITMO
 ```
-
 #### Teste de mesa
 
 | it | n  | n >= 0 | soma | i  | i <= n | num | soma =+ num  | saída                   |
@@ -236,7 +268,7 @@ $$ S = \frac{1}{2} + \frac{3}{4} + \frac{5}{6} + \frac{7}{8} + \dots $$
     - calcular o termo da série na variável $termo$, onde $termo = numerador/denominador$;
     - adicionar esse termo à variável $S$.
 4. Exibir o valor da série $S$.
-
+```
 #### Fluxograma
 
 ```mermaid
@@ -258,9 +290,18 @@ I --LOOP--> E
 
 ```
 Algoritmo SomaSerie
-INICIO
-...
-FIM
+1 INICIO
+  2 ESCREVA "Digite o número de termos da série S: "
+   3 LEIA n
+  4 S ← 0
+   5 PARA i DE 0 ATÉ n PASSO 1 FAÇA
+      6 numerador ← 2 * i + 1
+      7 denominador ← 2 * i + 2
+     8 termo ← numerador / denominador
+     9 S ← S + termo
+  10 FIM_PARA
+  11 ESCREVA "Soma da série S é ", S
+12 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.25 ponto)
@@ -306,9 +347,19 @@ H --> I
 
 ```
 Algoritmo CalcFatorial
-INICIO
-...
-FIM
+1 INICIO
+   2 ESCREVA "Digite um número inteiro positivo:"
+  3 LEIA n
+  4 SE n >= 0 ENTÃO
+     5 fator ← 1
+     6 PARA i DE 1 ATÉ n PASSO 1 FAÇA
+        7 fator ← fator * i
+     8 FIM_PARA
+     9 ESCREVA "O fatorial de ", n, " é: ", fator
+  10 SENÃO
+     11 ESCREVA "O valor deve ser maior ou igual a zero!"
+   12 FIM_SE
+13 FIM_ALFORITMO
 ```
 
 #### Teste de mesa
@@ -354,9 +405,17 @@ I --LOOP--> E
 
 ```
 Algoritmo GeraFibonacci
-INICIO
-...
-FIM
+1 INICIO
+  2 ESCREVA "Número de termos da série Fibonacci:"
+  3 LEIA n
+  4 a ← 0
+  5 b ← 1
+  6 PARA i DE 1 ATÉ n PASSO 1 FAÇA
+     7 ESCREVA a
+     8 termo_atual ← a + b
+     9 a ← b
+    10  b ← termo_atual
+  11 FIM_PARA
 ```
 #### Teste de mesa
 
@@ -405,9 +464,21 @@ E --> W
 
 ```
 Algoritmo InverteInteiro
-INICIO
-...
-FIM
+1 INICIO
+  2 ESCREVA "Digite um número inteiro: "
+  3 LEIA num
+  4 SE num >= 0 ENTÃO
+    5  num_inv ← 0
+     6 ENQUANTO num > 0 FAÇA
+         7 digito ← num % 10
+        8 num_inv ← num_inv * 10 + digito
+        9 num ← num // 10
+     10 FIM_ENQUANTO
+     11 ESCREVA "Número invertido:", num_inv
+  12 SENÃO
+    13  ESCREVA "O número deve ser positivo!"
+  14 FIM_SE
+15 FIM_ALGORITMO
 ```
 
 #### Teste de mesa
